@@ -12,7 +12,7 @@ var modalBtn= document.getElementById("modal-btn");
 
 var closeBtn =document.getElementsByClassName("closeBtn");
 
-var nighttoggle = document.getElementById("autonighttoggle");
+
 
 
 
@@ -20,9 +20,7 @@ var nighttoggle = document.getElementById("autonighttoggle");
 modalBtn.addEventListener('click', openModal);
 closeBtn[0].addEventListener('click', closeModal);
 
-nighttoggle.addEventListener('click', function(){
-  var nightToggle = true
-});
+
 
 
 function openModal(){
@@ -109,10 +107,7 @@ function startTime() {
     var h = today.getHours();
     var nightTogglebool;
 
-    nighttoggle.addEventListener('click', function(){
-     nightTogglebool = true
-    });
-
+  
     if (h > 12){
       h= h-12;
       nightToggle= true;
