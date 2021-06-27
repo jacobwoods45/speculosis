@@ -41,19 +41,17 @@ function closeModal(){
 
 
   async function getWeather(x,y){
-    const response = await fetch(`https://crossorigin.me/api.openweathermap.org/data/2.5/weather?lat=${x}&lon=${y}&units=imperial&appid=9fd71d0ecc15fa3563d8f5d7d9feb29c`);
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=d354dd938c6c4d7eb39235848212606&q=${x},${y}&aqi=no`);
     const responseData= await response.json();
     
  
-    document.getElementById('currentCondition').textContent = responseData.weather[0].description ;
-    document.getElementById('currentTemp').textContent = "Actual: " + responseData.main.temp + " °F";
-    document.getElementById('feelsTemp').textContent = "Feels: "+responseData.main.feels_like + " °F" ;
+    document.getElementById('currentCondition').textContent = "Current condition: "+ responseData.current.condition.text;
+    document.getElementById('currentTemp').textContent = "Actual: " + responseData.current.temp_f + " °F";
+    document.getElementById('feelsTemp').textContent = "Feels: "+responseData.current.feelslike_f + " °F" ;
 
-    document.getElementById('city').textContent = responseData.name ;
+    document.getElementById('city').textContent = responseData.location.name +", "+ responseData.location.region;
 
-    console.log(responseData.weather[0].description);
-    console.log(responseData.main.temp);
-    console.log(responseData.main.feels_like);
+
     
 
 
